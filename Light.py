@@ -85,7 +85,7 @@ def thread2():
 
 def pasreset(data):  # Parse keys, only a few major modes require multithreading
     global currentMode, currentHorizontalAngle, currentVerticalAngle, remoteControl, direct, Mode1, Mode2, Mode3, Mode4, Mode5, LED_num, discomode
-    if data == 'echo "KEY_1"':
+    if data == 'echo "KEY_1"': # 按键1对应检测模式
         if Mode1 == False:
             print("static OPEN")
             Mode1 = True
@@ -100,7 +100,7 @@ def pasreset(data):  # Parse keys, only a few major modes require multithreading
             # colorWipe(strip, Color(0, 0, 0), 0)
             currentMode = 0
             time.sleep(0.2)
-    elif data == 'echo "KEY_2"':
+    elif data == 'echo "KEY_2"':# 按键2对应遥控模式
         if Mode2 == False:
             print("remoteControl OPEN")
             LightsOn()
@@ -112,7 +112,7 @@ def pasreset(data):  # Parse keys, only a few major modes require multithreading
             # colorWipe(strip, Color(0, 0, 0), 0)
             print("remoteControl CLOSE")
             currentMode = 0
-    elif data == 'echo "KEY_3"':
+    elif data == 'echo "KEY_3"':# 按键3对应disco模式
 
         if Mode3 == False:
             print("disco1 OPEN")
@@ -120,7 +120,7 @@ def pasreset(data):  # Parse keys, only a few major modes require multithreading
             Mode3 = True
             discomode = 2
             currentMode = 3
-        elif Mode3 == True and discomode == 2:
+        elif Mode3 == True and discomode == 2: #再按一次可以切换不同功能
             print("disco2 OPEN")
             LightsOn()
             Mode3 = True
@@ -132,7 +132,7 @@ def pasreset(data):  # Parse keys, only a few major modes require multithreading
             Mode3 = False
             # colorWipe(strip, Color(0, 0, 0), 0)
             currentMode = 0
-    elif data == 'echo "KEY_4"':
+    elif data == 'echo "KEY_4"':  # 按键4对应回溯模式
         if Mode4 == False:
             print("goBack OPEN")
             LightsOn()
@@ -144,7 +144,7 @@ def pasreset(data):  # Parse keys, only a few major modes require multithreading
             Mode4 = False
             # colorWipe(strip, Color(0, 0, 0), 0)
             currentMode = 0
-    elif data == 'echo "KEY_5"':
+    elif data == 'echo "KEY_5"': # 按键5对应神枪手模式
         if Mode5 == False:
             print("McRae OPEN")
             LightsOff()
